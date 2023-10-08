@@ -9,10 +9,7 @@ from mtranslate import translate
 
 Twitterのアーカイブダウンロードから得られるTweets.jsファイルを
 同じファイル内に移動させてから実行すること。
-
 """
-
-
 
 def translate_words(words, dest_language='en'):
     # 単語をスペースで結合して一度に翻訳
@@ -33,7 +30,7 @@ def count_words(sentences):
     # 各文章ごとに形態素解析を行い、リストに追加
     for sentence in sentences:
         tokens = tokenizer.tokenize(sentence)
-        all_tokens.extend(token.base_form for token in tokens if token.part_of_speech.startswith(('名詞', '形容詞', '副詞', '動詞')))
+        all_tokens.extend(token.base_form for token in tokens if token.part_of_speech.startswith(('名詞', '形容詞', '副詞', '動詞', '連体詞', '感動詞', '接続詞', '助詞', '助動詞')))
 
     # 各単語の出現回数を数える
     word_counts = Counter(all_tokens)
